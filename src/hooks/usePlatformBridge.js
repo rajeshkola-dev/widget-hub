@@ -28,10 +28,12 @@ export const usePlatformBridge = ({ onMessage }) => {
 
   // Listen for incoming messages (from native or web)
   useEffect(() => {
-    // Set up native → web hook (for iOS WKWebView)
+    // Setup native - JS handler
     window.receiveMessageFromNative = function (message) {
-      console.log('Received Message from Native:', message);
-      window.dispatchEvent(new CustomEvent('nativeMessage', { detail: message }));
+      console.log('Received message from Native App:', message);
+      if (typeof onMessage === 'function') {
+        onMessage(message, 'native');
+      }
     };
 
     const listener = (event) => {
@@ -55,11 +57,10 @@ export const usePlatformBridge = ({ onMessage }) => {
       }
     };
     
-    window.addEventListener("nativeMessage", listener);
     window.addEventListener("message", listener);
     return () => {
+      delete window.receiveMessageFromNative;
       window.removeEventListener("message", listener);
-      window.removeEventListener("nativeMessage", listener);
     };
   }, [onMessage]);
 

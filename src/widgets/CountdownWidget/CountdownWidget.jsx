@@ -10,7 +10,9 @@ export const CountdownWidget = ({ initialDuration, onComplete }) => {
   const { sendToNative, sendToWeb } = usePlatformBridge({
     onMessage: (data, origin) => {
       console.log('Widget received message:', data, 'from origin:', origin);
-      setNativeMessage(data);
+      if (origin === 'native') {
+        setNativeMessage(data);
+      }
     }
   });
 
