@@ -44,7 +44,6 @@ export const usePlatformBridge = ({ onMessage }) => {
       ) {
         return;
       }
-      console.log(event)
       // Skip self-fired messages 
       if (event.source === window) {
         return;
