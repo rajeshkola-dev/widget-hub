@@ -50,18 +50,19 @@ export default [
     external: ['react', 'react-dom'],
     plugins: basePlugins
   },
+  // ButtonWidget build
   {
-    input: 'src/widgets/CountdownWidget/embed.jsx',
+    input: 'src/widgets/Button/Button.jsx',
     output: {
-      file: 'dist/countdown-widget.umd.js',
-      format: 'iife',
-      name: 'CountdownWidget',
+      file: 'dist/widgets/Button/index.js',
+      format: 'esm',
+      sourcemap: true,
       globals: {
         react: 'React',
         'react-dom': 'ReactDOM',
-      }
+      },
     },
     external: ['react', 'react-dom'],
     plugins: basePlugins
-    }
+  }
 ];

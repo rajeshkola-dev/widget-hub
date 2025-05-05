@@ -1,6 +1,7 @@
 import React from "react";
 import { Routes, Route } from "react-router-dom";
 import CountdownWidget from "./widgets/CountdownWidget";
+import Button from "./widgets/Button";
 
 export default function App() {
   return (
@@ -10,11 +11,11 @@ export default function App() {
         path="/countdown"
         element={
           <CountdownWidget
-            initialDuration={300}
-            onComplete={() => alert("Countdown finished!")}
+            initialDuration={3}
           />
         }
       />
+      <Route path="/button" element={<Button />} />
     </Routes>
   );
 }

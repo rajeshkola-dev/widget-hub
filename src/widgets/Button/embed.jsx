@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import { CountdownWidget } from './CountdownWidget.jsx';
+import { CountdownWidget } from './Button.jsx';
 
 if (document.readyState === 'loading') {
   document.addEventListener('DOMContentLoaded', init);
@@ -14,6 +14,6 @@ function init() {
   document.body.appendChild(container);
 
   ReactDOM.createRoot(container).render(
-    <CountdownWidget initialDuration={4} />
+    <CountdownWidget initialDuration={300} />
   );
 }
