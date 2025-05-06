@@ -27,7 +27,7 @@ The platform supports robust two-way communication between host apps, widgets, a
 ## 🔧 Development
 
 ```bash
-git clone https://github.com/your-org/widget-hub.git
+git clone https://github.com/rajeshkola-dev/widget-hub.git
 cd widget-hub
 npm install
 npm run build //to build esm module packages.
